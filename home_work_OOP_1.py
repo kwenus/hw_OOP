@@ -1,5 +1,6 @@
 from statistics import mean
 
+
 class Student:
   def __init__(self, name, surname, gender):
     self.name = name
@@ -13,7 +14,7 @@ class Student:
     if course not in self.courses_in_progress:
       self.courses_in_progress.append(course)
     else:
-      return f'{course} is list of courses already.'
+      return f'{course} is in list of courses already.'
 
   def rate_lecture(self, lecturer, course, grade):
     if isinstance(lecturer, Lecturer) and course in self.courses_in_progress and course in lecturer.courses_attached:
@@ -95,7 +96,9 @@ class Reviewer(Mentor):
   def __str__(self):
     return f'Name: {self.name}\nSurname: {self.surname}\nChecks homework assignments on {", ".join(self.courses_attached)} courses.'
 
-def average_course_grade(list_, course):    # функция средней оценки за курс
+
+# функция определения средней оценки за курс (универсальная):
+def average_course_grade(list_, course):
   sum_ = 0
   count_ = 0
   for person in list_:
@@ -129,17 +132,14 @@ student_1.add_course('Python')
 student_3.add_course('Python')
 student_5.add_course('Python')
 student_7.add_course('Python')
-
 student_2.add_course('Git')
 student_4.add_course('Git')
 student_6.add_course('Git')
 student_8.add_course('Git')
-
 student_1.add_course('C++')
 student_2.add_course('C++')
 student_5.add_course('C++')
 student_8.add_course('C++')
-
 student_3.add_course('Django')
 student_4.add_course('Django')
 student_6.add_course('Django')
@@ -168,17 +168,14 @@ reviewer_1.rate_hw(student_1, 'Python', [3,3,5])
 reviewer_1.rate_hw(student_3, 'Python', [5,3,5])
 reviewer_1.rate_hw(student_5, 'Python', [3,4,5])
 reviewer_1.rate_hw(student_7, 'Python', [4,3,5])
-
 reviewer_2.rate_hw(student_2, 'Git', [3,5,5])
 reviewer_2.rate_hw(student_4, 'Git', [4,4,5])
 reviewer_2.rate_hw(student_6, 'Git', [5,3,5])
 reviewer_2.rate_hw(student_8, 'Git', [4,5,5])
-
 reviewer_2.rate_hw(student_1, 'C++', [5,5,5])
 reviewer_2.rate_hw(student_2, 'C++', [3,2,5])
 reviewer_2.rate_hw(student_5, 'C++', [2,4,5])
 reviewer_2.rate_hw(student_8, 'C++', [2,5,5])
-
 reviewer_1.rate_hw(student_3, 'Django', [5,2,5])
 reviewer_1.rate_hw(student_4, 'Django', [2,4,5])
 reviewer_1.rate_hw(student_6, 'Django', [5,2,5])
@@ -189,42 +186,38 @@ student_1.rate_lecture(lecturer_1, 'Python', 6)
 student_3.rate_lecture(lecturer_1, 'Python', 4)
 student_5.rate_lecture(lecturer_1, 'Python', 5)
 student_7.rate_lecture(lecturer_1, 'Python', 5)
-
 student_2.rate_lecture(lecturer_2, 'Git', 3)
 student_4.rate_lecture(lecturer_2, 'Git', 4)
 student_6.rate_lecture(lecturer_2, 'Git', 5)
 student_8.rate_lecture(lecturer_2, 'Git', 5)
-
 student_1.rate_lecture(lecturer_3, 'C++', 5)
 student_2.rate_lecture(lecturer_3, 'C++', 4)
 student_5.rate_lecture(lecturer_3, 'C++', 4)
 student_8.rate_lecture(lecturer_3, 'C++', 4)
-
 student_3.rate_lecture(lecturer_4, 'Django', 6)
 student_4.rate_lecture(lecturer_4, 'Django', 7)
 student_6.rate_lecture(lecturer_4, 'Django', 5)
 student_7.rate_lecture(lecturer_4, 'Django', 5)
 
-# print(student_7)
-# print(lecturer_3)
-# print(reviewer_1)
+# полевые испытания:
+print(student_7)
+print(lecturer_3)
+print(reviewer_1)
 
-# создаем списоки для проверки методов:
+# создаем списки для проверки методов:
 students_list = [student_1, student_2, student_3, student_4, student_5, student_6, student_7, student_8]
 lecturers_list = [lecturer_1, lecturer_2, lecturer_3, lecturer_4]
 
-# выводим на экран лучшего и худшего студента группы:
-# print(max(students_list))
-# print(min(students_list))
+# находим лучшего и худшего студента группы:
+print(max(students_list))
+print(min(students_list))
 
-# выводим на экран лучшего и худшего лектора:
-# print(max(lecturers_list))
-# print(min(lecturers_list))
+# находим лучшего и худшего лектора:
+print(max(lecturers_list))
+print(min(lecturers_list))
 
 # проверяем функцию средней оценки за курс:
-# print(average_course_grade(students_list, 'C++'))
-# print(average_course_grade(students_list, 'Python'))
-# print(average_course_grade(lecturers_list, 'Git'))
-# print(average_course_grade(lecturers_list, 'Django'))
-
-
+print(average_course_grade(students_list, 'C++'))
+print(average_course_grade(students_list, 'Python'))
+print(average_course_grade(lecturers_list, 'Git'))
+print(average_course_grade(lecturers_list, 'Django'))
